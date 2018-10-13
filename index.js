@@ -4,7 +4,7 @@ const os = require('os')
 
 function detectQrCode(file) {
   return new Promise((resolve) => {
-    const bin = path.join(__dirname, `bin/${os.platform()}/inspect`)
+    const bin = path.join(__dirname, `bin/inspect`)
     exec(`${bin} ${file}`, (err, stdout, stderr) => {
       console.log(stdout)
       console.log(stderr)
