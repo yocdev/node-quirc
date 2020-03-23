@@ -1,13 +1,15 @@
 const { exec } = require('child_process')
+const fs = require('fs')
 const path = require('path')
-const os = require('os')
 
-function detectQrCode(file) {
-  return new Promise((resolve) => {
-    const bin = path.join(__dirname, `bin/inspect`)
+async function detectQrCode(file) {
+  const bin = path.join(__dirname, `bin/inspect`)
+  if (!fs.existsSync(bin)) {
+    return false
+  }
+
+  return new Promise(resolve => {
     exec(`${bin} ${file}`, (err, stdout, stderr) => {
-      console.log(stdout)
-      console.log(stderr)
       if (stderr) {
         resolve(false)
       } else {

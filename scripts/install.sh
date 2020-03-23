@@ -10,6 +10,6 @@ fi
 make inspect
 cd ..
 if [ ! -d "bin" ]; then
-mkdir bin
+  mkdir bin
 fi
 mv quirc/inspect bin/

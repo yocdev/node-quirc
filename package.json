@@ -4,8 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "scripts/preinstall.sh"
+    "install": "run-script-os",
+    "install:win32": "echo 'Windows is not supported, skipped'",
+    "install:default": "scripts/install.sh",
+    "test": "jest"
   },
   "author": "XxxxxMing",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "run-script-os": "^1.1.1"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
 }
